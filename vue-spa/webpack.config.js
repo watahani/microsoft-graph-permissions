@@ -48,7 +48,8 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
+    overlay: true,
+    contentBase: path.resolve(__dirname, '../docs')
   },
   performance: {
     hints: false
