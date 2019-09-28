@@ -2,15 +2,23 @@ import requests
 import re
 import yaml
 import json
+import logging
 from bs4 import BeautifulSoup, NavigableString, Tag
+
+logging.basicConfig(level=logging.INFO)
 
 api_re = re.compile(r'api/(.+?)\.md')
 source_uri = "https://docs.microsoft.com/en-US/graph/api/{}?view=graph-rest-1.0"
 api_reference_yaml = "https://raw.githubusercontent.com/microsoftgraph/microsoft-graph-docs/master/api-reference/v1.0/toc.yml"
 permission_uri = "https://docs.microsoft.com/en-us/graph/permissions-reference"
 
+
 def get_permission_list():
+    logging.debug("get source     : {}".format(permission_uri))
     r = requests.get(permission_uri)
+
+    logging.debug("convert to json: {}".format(permission_uri))
+
     b = BeautifulSoup(r.content, features="html.parser")
     trs = b.find_all('tr')
     permission_list = []
@@ -52,8 +60,8 @@ def get_api_names(api_reference_yaml_path):
 
     api_reference_links = [r for r in data[0]['items']
                            if r["name"] == "v1.0 reference"][0]["items"]
-
-    return set(__get_api_names_recurse(api_reference_links))
+    
+    return sorted(list(set(__get_api_names_recurse(api_reference_links))))
 
 
 def save_source_html():
@@ -171,25 +179,28 @@ def debug(name):
 
 
 if __name__ == "__main__":
-    # import time
-    # start = time.time()
-    # file()
-    # process_time = time.time() - start
-    # print(process_time)
     p = get_permission_list()
     with open('vue-spa/src/permissions.json', 'w', encoding='utf-8') as f:
         f.write(json.dumps(p, indent="  "))
 
     names = get_api_names(api_reference_yaml)
     result = []
-
+    count = len(names)
+    logging.info("api name count : {}".format(count))
+    i = 0
     for name in names:
+        i = i + 1
+        logging.info("step           : {}/{}".format(i, count))
+
         source = source_uri.format(name)
-        with open("api_source/{}.html".format(name), "r", encoding='utf-8') as f:
-            html = f.read()
+        try:
+            logging.info("get source     : {}".format(source))
+            html = requests.get(source).content
+            logging.info("convert to json: {}".format(source))
             j = html_to_json(html, source)
             result.append(j)
+        except Exception as e:
+            print(e)
+
     with open('vue-spa/src/api.json', 'w', encoding='utf-8') as f:
         f.write(json.dumps(result, indent="  "))
-    
-
