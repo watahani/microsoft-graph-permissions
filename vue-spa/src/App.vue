@@ -1,7 +1,16 @@
 <template>
   <div id="app">
+    <select
+      id="context"
+      v-model="context"
+      v-on:change="changeContext"
+    >
+      <option value="application">application</option>
+      <option value="delegated">delegated</option>
+    </select>
     <input
       type="text"
+      placeholder="User.Read.All"
       name="permissions"
       id="permissions"
       list="permissions-suggestion"
@@ -15,14 +24,6 @@
       >
       </option>
     </datalist>
-    <select
-      id="context"
-      v-model="context"
-      v-on:change="changeContext"
-    >
-      <option value="application">application</option>
-      <option value="delegated">delegated</option>
-    </select>
     <div>
       <table>
         <thead>
@@ -57,7 +58,7 @@
           </tr>
         </thead>
         <tbody v-if="apiPermission">
-          <tr v-for="p in apiPermission" v-bind:key="p.key">
+          <tr v-for="p in apiPermission" v-bind:key="p.key" v-bind:class="{isBeta: p.isBeta}">
             <td>
               <a :href="p.sourceUri" target="_blank" rel="noopener">{{p.name}}</a>
             </td>
@@ -98,7 +99,7 @@ export default {
   name: "app",
   data() {
     return {
-      selectedPermission: "User.Read.All",
+      selectedPermission: "",
       context: "application",
       permissionsSuggestion: permissions.filter(p => p.type === "application")
     };
@@ -155,5 +156,10 @@ li {
 
 a {
   color: #42b983;
+}
+
+tr.isBeta > td:first-child::after {
+  content: " (beta)";
+  color: red;
 }
 </style>

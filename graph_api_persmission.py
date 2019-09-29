@@ -8,8 +8,9 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 logging.basicConfig(level=logging.INFO)
 
 api_re = re.compile(r'api/(.+?)\.md')
-source_uri = "https://docs.microsoft.com/en-US/graph/api/{}?view=graph-rest-1.0"
-api_reference_yaml = "https://raw.githubusercontent.com/microsoftgraph/microsoft-graph-docs/master/api-reference/v1.0/toc.yml"
+source_uri = "https://docs.microsoft.com/en-US/graph/api/{api_name}?view=graph-rest-{version}"
+api_toc_yaml_v1 = "https://raw.githubusercontent.com/microsoftgraph/microsoft-graph-docs/master/api-reference/v1.0/toc.yml"
+api_toc_yaml_beta = "https://raw.githubusercontent.com/microsoftgraph/microsoft-graph-docs/master/api-reference/beta/toc.yml"
 permission_uri = "https://docs.microsoft.com/en-us/graph/permissions-reference"
 
 
@@ -63,30 +64,31 @@ def __get_api_names_recurse(source):
                 api_name = api_re.match(api["href"]).group(1)
                 if api_name:
                     api_names.append(api_name)
-        if "items" in api:
+        if "items" in api and api["items"]:
             api_names = api_names + __get_api_names_recurse(api["items"])
+                
     return api_names
 
 
-def get_api_names(api_reference_yaml_path):
-    headers = {"Accept-Language": "en-US,en;q=0.5"}
-    data = yaml.load(requests.get(api_reference_yaml,
-                                  headers=headers).content, yaml.SafeLoader)
-
+def get_api_names(api_toc_yaml=api_toc_yaml_v1, version="1.0"):
+    data = yaml.load(requests.get(api_toc_yaml).content, yaml.SafeLoader)
+    v = version
+    if version == "1.0":
+        v = "v1.0"
     api_reference_links = [r for r in data[0]['items']
-                           if r["name"] == "v1.0 reference"][0]["items"]
+                           if r["name"].lower() == "{} reference".format(v)][0]["items"]
     
     return sorted(list(set(__get_api_names_recurse(api_reference_links))))
 
 
-def save_source_html():
-    api_names = get_api_names(api_reference_yaml)
-
-    for b in api_names:
+def save_source_html(api_toc_yaml=api_toc_yaml_v1,api_version="1.0"):
+    api_names = get_api_names(api_toc_yaml, api_version)
+    api_version = "1.0"
+    for api_name in api_names:
         try:
-            u = source_uri.format(b)
-            r = requests.get(source_uri.format(b))
-            with open("api_source/" + b + ".html", "wb") as f:
+            u = source_uri.format(api_name=api_name, version=api_version)
+            r = requests.get(u)
+            with open("api_source/" + api_name + ".html", "wb") as f:
                 f.write(r.content)
         except Exception as e:
             print(e)
@@ -121,7 +123,20 @@ def html_to_json(html, source_uri=None):
             api['datetime'] = update_time.attrs.get('datetime', None) if (
                 update_time and update_time.attrs) else None
 
-            description = overview.p
+            parags = overview.find_all('p')
+            
+            # skip warning for beta api
+            # 
+            # <div class="alert is-primary">
+            #     <p class="alert-title"><span class="docon docon-status-info-outline" aria-hidden="true"></span> Important</p>
+            #     <p>APIs under the <code>/beta</code> version in Microsoft Graph are subject to change. Use of these APIs in production applications is not supported.</p>
+            # </div>
+            #
+            if parags[0].text == "Important":
+                description = parags[2]
+            else:
+                description = parags[0]
+
             api["description"] = description.text
 
         elif attrs_id == 'permissions':
@@ -174,7 +189,7 @@ def get_permissions(c):
             td = tr.find_all('td')
             td = td[len(td) - 1]
             permissions = [p.strip() for p in td.text.split(
-                ',')] if not "Not supported." in td.text else None
+                ',') if p != ""] if not "Not supported." in td.text else None
             p[permission_type_key] = permissions
 
     if len(error) > 0:
@@ -192,13 +207,8 @@ def debug(name):
         print(json.dumps(j, indent="  "))
         exit()
 
-
-if __name__ == "__main__":
-    p = get_permission_list()
-    with open('vue-spa/src/permissions.json', 'w', encoding='utf-8') as f:
-        f.write(json.dumps(p, indent="  "))
-
-    names = get_api_names(api_reference_yaml)
+def get_api_detail(api_toc_yaml=api_toc_yaml_v1, version="1.0"):
+    names = get_api_names(api_toc_yaml=api_toc_yaml, version=version)
     result = []
     count = len(names)
     logging.info("api name count : {}".format(count))
@@ -207,7 +217,7 @@ if __name__ == "__main__":
         i = i + 1
         logging.info("step           : {}/{}".format(i, count))
 
-        source = source_uri.format(name)
+        source = source_uri.format(api_name=name, version=version)
         try:
             logging.info("get source     : {}".format(source))
             html = requests.get(source).content
@@ -215,7 +225,39 @@ if __name__ == "__main__":
             j = html_to_json(html, source)
             result.append(j)
         except Exception as e:
-            print(e)
+            logging.warning(e)
+    return result
+
+def merge_beta_api_to_v1(v1, beta):
+    v1_api_names = [api["name"] for api in v1]
+    additional_api = [b for b in beta if not b["name"] in v1_api_names]
+    for a in additional_api:
+        a["isBeta"] = True
+
+    return v1 + additional_api
+
+if __name__ == "__main__":
+    api_version="1.0"
+    p = get_permission_list()
+    with open('vue-spa/src/permissions.json', 'w', encoding='utf-8') as f:
+        f.write(json.dumps(p, indent="  "))
+
+    v1 = get_api_detail()
+    with open('vue-spa/src/api_v1.json', 'w', encoding='utf-8') as f:
+        f.write(json.dumps(v1, indent="  "))
+
+    beta = get_api_detail(api_toc_yaml=api_toc_yaml_beta, version="beta")
+    with open('vue-spa/src/api_beta.json', 'w', encoding='utf-8') as f:
+        f.write(json.dumps(beta, indent="  "))
+
+
+    # with open('vue-spa/src/api_v1.json', 'r', encoding='utf-8') as f:
+    #     v1 = json.load(f)
+
+    # with open('vue-spa/src/api_beta.json', 'r', encoding='utf-8') as f:
+    #     beta = json.load(f)
+
+    merged = merge_beta_api_to_v1(v1, beta)
 
     with open('vue-spa/src/api.json', 'w', encoding='utf-8') as f:
-        f.write(json.dumps(result, indent="  "))
+        f.write(json.dumps(merged, indent="  "))

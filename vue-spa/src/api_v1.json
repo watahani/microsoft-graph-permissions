@@ -13727,8 +13727,7 @@
         "Notes.Read",
         "Notes.ReadWrite",
         "Notes.Read.All",
-        "Notes.ReadWrite.All",
-        ""
+        "Notes.ReadWrite.All"
       ],
       "msa": [
         "Notes.Create",

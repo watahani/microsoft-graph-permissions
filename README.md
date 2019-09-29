@@ -10,4 +10,4 @@ You can search executable APIs from MS Graph [Permissions](https://docs.microsof
 
 ## TODO
 
-- Beta API
+- Japanese Support
