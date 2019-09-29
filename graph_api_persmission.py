@@ -20,25 +20,40 @@ def get_permission_list():
     logging.debug("convert to json: {}".format(permission_uri))
 
     b = BeautifulSoup(r.content, features="html.parser")
-    trs = b.find_all('tr')
+    tables = b.find_all('table')
     permission_list = []
-    for tr in trs:
-        if tr.parent.name == "tbody":
-            tds = tr.find_all('td')
-            if len(tds) < 4:
-                continue
 
-            permission = {
-                "name": tds[0].text,
-                "displayString": tds[1].text,
-                "description": tds[2].text,
-                "needAdminConsent": True if tds[3].text == "Yes" else False
-            }
-            if len(tds) > 4:
-                permission['isMsaSupported'] = True if tds[4].text == "Yes" else False
-            permission_list.append(permission)
+    for table in tables:
+        table_header = table.find_previous().text
+
+        if 'delegated permissions' in table_header.lower():
+            permission_list = permission_list + permission_name_table_to_json(table, 'delegated')        
+        elif 'application permissions' in table_header.lower():
+            permission_list = permission_list + permission_name_table_to_json(table, 'application')
+
     return permission_list
 
+def permission_name_table_to_json(table, type):
+    permission_list = []
+    trs = table.find('tbody').find_all('tr')
+    for tr in trs:
+        tds = tr.find_all('td')
+        if len(tds) < 4:
+            continue
+
+        permission = {
+            "id": type + "_" +  tds[0].text,
+            "name": tds[0].text,
+            "displayString": tds[1].text,
+            "description": tds[2].text,
+            "needAdminConsent": True if tds[3].text == "Yes" else False,
+            "type": type
+        }
+        if len(tds) > 4:
+            permission['isMsaSupported'] = True if tds[4].text == "Yes" else False
+        permission_list.append(permission)
+
+    return permission_list
 
 def __get_api_names_recurse(source):
     api_names = []

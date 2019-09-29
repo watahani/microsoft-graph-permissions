@@ -9,19 +9,19 @@
     />
     <datalist id="permissions-suggestion">
       <option
-        v-once
-        v-for="permission in permissions"
+        v-for="permission in permissionsSuggestion"
         :value="permission.name"
-        v-bind:key="permission.name"
-      />
+        v-bind:key="permission.id"
+      >
+      </option>
     </datalist>
     <select
       id="context"
       v-model="context"
+      v-on:change="changeContext"
     >
       <option value="application">application</option>
       <option value="delegated">delegated</option>
-      <option value="msa">MSA</option>
     </select>
     <div>
       <table>
@@ -57,7 +57,7 @@
           </tr>
         </thead>
         <tbody v-if="apiPermission">
-          <tr v-for="p in apiPermission" v-bind:key="p.name">
+          <tr v-for="p in apiPermission" v-bind:key="p.key">
             <td>
               <a :href="p.sourceUri" target="_blank" rel="noopener">{{p.name}}</a>
             </td>
@@ -94,45 +94,35 @@
 import * as data from "./api.json";
 import * as permissions from "./permissions.json";
 
-const permissionNames = permissions.map(p => p.name);
-
-const permissionIndex = p => {
-  if (p === "") {
-    return false;
-  }
-  const index = permissionNames.indexOf(p);
-  if (index === -1) {
-    return false;
-  } else {
-    return index;
-  }
-};
-
 export default {
   name: "app",
   data() {
     return {
       selectedPermission: "User.Read.All",
       context: "application",
-      permissions: permissions
+      permissionsSuggestion: permissions.filter(p => p.type === "application")
     };
+  },
+  methods: {
+    changeContext: function(key){
+      console.log(this.context)
+      this.permissionsSuggestion = permissions.filter(p => p.type === this.context)
+      console.log(this.permissionsSuggestion)
+    }
   },
   computed: {
     apiPermission: function() {
-      if (!permissionIndex(this.selectedPermission)) {
-        return [];
-      }
       var apiPerm = data.filter(
         api =>
           api.permissions &&
           api.permissions[this.context] &&
-          api.permissions[this.context].indexOf(this.selectedPermission) != -1
+          api.permissions[this.context].indexOf(this.selectedPermission) !== -1
       );
       return apiPerm;
     },
     selectedPermissionDetail: function() {
-      const index = permissionIndex(this.selectedPermission);
-      return permissions[index];
+      const pId = this.context + "_" + this.selectedPermission
+      return this.permissionsSuggestion.filter(p => p.id === pId)[0];
     }
   }
 };
