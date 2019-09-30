@@ -8,21 +8,17 @@
       <option value="application">application</option>
       <option value="delegated">delegated</option>
     </select>
-    <input
-      type="text"
-      placeholder="User.Read.All"
-      name="permissions"
-      id="permissions"
-      list="permissions-suggestion"
+    <select
       v-model="selectedPermission"
-    />
-    <datalist id="permissions-suggestion">
+    >
       <option
         v-for="permission in permissionsSuggestion"
         :value="permission.name"
         v-bind:key="permission.id"
       >
+      {{permission.name}}
       </option>
+    </select>
     </datalist>
     <div>
       <table>
@@ -99,7 +95,7 @@ export default {
   name: "app",
   data() {
     return {
-      selectedPermission: "",
+      selectedPermission: "User.Read.All",
       context: "application",
       permissionsSuggestion: permissions.filter(p => p.type === "application")
     };
@@ -156,6 +152,10 @@ li {
 
 a {
   color: #42b983;
+}
+
+table {
+  height: 150px;
 }
 
 tr.isBeta > td:first-child::after {
