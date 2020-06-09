@@ -75,7 +75,7 @@ def get_api_names(api_toc_yaml=api_toc_yaml_v1, version="1.0"):
     v = version
     if version == "1.0":
         v = "v1.0"
-    api_reference_links = [r for r in data[0]['items']
+    api_reference_links = [r for r in data['items']
                            if r["name"].lower() == "{} reference".format(v)][0]["items"]
     
     return sorted(list(set(__get_api_names_recurse(api_reference_links))))
@@ -209,7 +209,7 @@ def debug(name):
 
 def get_api_detail(api_toc_yaml=api_toc_yaml_v1, version="1.0"):
     names = get_api_names(api_toc_yaml=api_toc_yaml, version=version)
-    result = []
+    results = []
     count = len(names)
     logging.info("api name count : {}".format(count))
     i = 0
@@ -223,10 +223,10 @@ def get_api_detail(api_toc_yaml=api_toc_yaml_v1, version="1.0"):
             html = requests.get(source).content
             logging.info("convert to json: {}".format(source))
             j = html_to_json(html, source)
-            result.append(j)
+            results.append(j)
         except Exception as e:
             logging.warning(e)
-    return result
+    return results
 
 def merge_beta_api_to_v1(v1, beta):
     v1_api_names = [api["name"] for api in v1]
