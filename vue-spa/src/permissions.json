@@ -2348,6 +2348,60 @@
     "isMsaSupported": false
   },
   {
+    "id": "delegated_Team.ReadBasic.All",
+    "name": "Team.ReadBasic.All",
+    "displayString": "Read the names and descriptions of teams",
+    "description": "Read the names and  descriptions of teams, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamSettings.Read.All",
+    "name": "TeamSettings.Read.All",
+    "displayString": "Read teams' settings",
+    "description": "Read all teams' settings, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamSettings.ReadWrite.All",
+    "name": "TeamSettings.ReadWrite.All",
+    "displayString": "Read and change teams' settings.",
+    "description": "Read and change all teams' settings, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_Team.ReadBasic.All",
+    "name": "Team.ReadBasic.All",
+    "displayString": "Get a list of all teams.",
+    "description": "Get a list of all teams, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_TeamSettings.Read.All",
+    "name": "TeamSettings.Read.All",
+    "displayString": "Read all teams' settings",
+    "description": "Read this team's settings, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_TeamSettings.ReadWrite.All",
+    "name": "TeamSettings.ReadWrite.All",
+    "displayString": "Read and change all teams' settings",
+    "description": "Read and change all teams' settings, without a signed-in user.",
+    "needAdminConsent": false,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
     "id": "delegated_TeamsTab.Read.All",
     "name": "TeamsTab.Read.All",
     "displayString": "Read tabs in Microsoft Teams.",
@@ -2436,6 +2490,108 @@
     "needAdminConsent": true,
     "type": "delegated",
     "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadForUser (private preview)",
+    "name": "TeamsAppInstallation.ReadForUser (private preview)",
+    "displayString": "Read user's installed Teams apps",
+    "description": "Allows the app to read the Teams apps that are installed for the signed-in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadWriteForUser (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteForUser (private preview)",
+    "displayString": "Manage user's installed Teams apps",
+    "description": "Allows the app to read, install, upgrade, and uninstall Teams apps installed for the signed in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadWriteSelfForUser (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteSelfForUser (private preview)",
+    "displayString": "Allow the app to manage itself in teams",
+    "description": "Allows a Teams app to read, install, upgrade, and uninstall itself to teams the signed-in user can access.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadForTeam (private preview)",
+    "name": "TeamsAppInstallation.ReadForTeam (private preview)",
+    "displayString": "Read installed Teams apps in teams",
+    "description": "Allows the app to read the Teams apps that are installed in teams the signed-in user can access. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadWriteForTeam (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteForTeam (private preview)",
+    "displayString": "Manage installed Teams apps in teams",
+    "description": "Allows the app to read, install, upgrade, and uninstall Teams apps in teams the signed-in user can access. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadWriteSelfForTeam (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteSelfForTeam (private preview)",
+    "displayString": "Allow the app to manage itself in teams",
+    "description": "Allows a Teams app to read, install, upgrade, and uninstall itself to teams the signed-in user can access.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadForUser.All (private preview)",
+    "name": "TeamsAppInstallation.ReadForUser.All (private preview)",
+    "displayString": "Read installed Teams apps for all users",
+    "description": "Allows the app to read the Teams apps that are installed for any user, without a signed-in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadWriteForUser.All (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteForUser.All (private preview)",
+    "displayString": "Manage Teams apps for all users",
+    "description": "Allows the app to read, install, upgrade, and uninstall Teams apps for any user, without a signed-in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadWriteSelfForUser.All (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteSelfForUser.All (private preview)",
+    "displayString": "Allow the app to manage itself for all users",
+    "description": "Allows a Teams app to read, install, upgrade, and uninstall itself to any user, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadForTeam.All (private preview)",
+    "name": "TeamsAppInstallation.ReadForTeam.All (private preview)",
+    "displayString": "Read installed Teams apps for all teams",
+    "description": "Allows the app to read the Teams apps that are installed in any team, without a signed-in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadWriteForTeam.All (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteForTeam.All (private preview)",
+    "displayString": "Manage Teams apps for all teams",
+    "description": "Allows the app to read, install, upgrade, and uninstall Teams apps in any team, without a signed-in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadWriteSelfForTeam.All (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteSelfForTeam.All (private preview)",
+    "displayString": "Allow the Teams app to manage itself for all teams",
+    "description": "Allows a Teams app to read, install, upgrade, and uninstall itself in any team, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
   },
   {
     "id": "delegated_ThreatAssessment.ReadWrite.All",

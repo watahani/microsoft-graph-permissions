@@ -132,10 +132,10 @@ def html_to_json(html, source_uri=None):
             #     <p>APIs under the <code>/beta</code> version in Microsoft Graph are subject to change. Use of these APIs in production applications is not supported.</p>
             # </div>
             #
-            if parags[0].text == "Important":
-                description = parags[2]
+            if parags[1].text == "Important":
+                description = parags[3]
             else:
-                description = parags[0]
+                description = parags[1]
 
             api["description"] = description.text
 
@@ -226,6 +226,7 @@ def get_api_detail(api_toc_yaml=api_toc_yaml_v1, version="1.0"):
             results.append(j)
         except Exception as e:
             logging.warning(e)
+            raise e
     return results
 
 def merge_beta_api_to_v1(v1, beta):
