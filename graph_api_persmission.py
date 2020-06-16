@@ -5,7 +5,7 @@ import json
 import logging
 from bs4 import BeautifulSoup, NavigableString, Tag
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.WARNING)
 
 api_re = re.compile(r'api/(.+?)\.md')
 source_uri = "https://docs.microsoft.com/en-US/graph/api/{api_name}?view=graph-rest-{version}"
@@ -132,10 +132,36 @@ def html_to_json(html, source_uri=None):
             #     <p>APIs under the <code>/beta</code> version in Microsoft Graph are subject to change. Use of these APIs in production applications is not supported.</p>
             # </div>
             #
-            if parags[1].text == "Important":
-                description = parags[3]
+            paragslen = len(parags)
+
+            description = None
+            # some api does not have any nameSpace and beta notice
+            if paragslen == 1:
+                description = parags[0]
             else:
-                description = parags[1]
+                for i in range(paragslen):
+                    if not 'Namespace: ' in parags[i].text:
+                        continue
+                    
+                    if i+1 >= paragslen:
+                        logging.warning("Can't find description in paragraphs index: {}".format(i+1))
+                        break
+                    
+                    if parags[i+1].text != "Important":
+                        description = parags[i+1]
+                        break
+
+                    if i+3 >= paragslen:
+                        logging.warning("Can't find description in paragraphs index: {}".format(i+3))
+                        break
+
+                    description = parags[i+3]
+                    break
+
+            if not description:
+                logging.warning("can't find description for {}".format(source_uri))
+                logging.warning(parags)
+                description = parags[0]
 
             api["description"] = description.text
 
