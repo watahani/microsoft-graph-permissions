@@ -103,6 +103,15 @@
     "isMsaSupported": false
   },
   {
+    "id": "delegated_AppCatalog.Submit",
+    "name": "AppCatalog.Submit",
+    "displayString": "Submit an app for admin review",
+    "description": "Allows the user to submit and app for admin review for publication in an organization's app catalog and allows user to cancel past submissions that have not been published. \ud835\udc0d\ud835\udc0e\ud835\udc13\ud835\udc04: Non-admin users submit apps for review by including the  requiresReview=true query parameter.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
     "id": "delegated_Application.Read.All",
     "name": "Application.Read.All",
     "displayString": "Read applications",
@@ -157,6 +166,41 @@
     "description": "Allows the app to manage permission grants for application permissions to any API (including Microsoft Graph) and application assignments for any app, without a signed-in user.",
     "needAdminConsent": true,
     "type": "application"
+  },
+  {
+    "id": "delegated_AuditLog.Read.All",
+    "name": "AuditLog.Read.All",
+    "displayString": "Read audit log data",
+    "description": "Allows the app to read and query your audit log activities, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_AuditLog.Read.All",
+    "name": "AuditLog.Read.All",
+    "displayString": "Read all audit log data",
+    "description": "Allows the app to read and query your audit log activities, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "delegated_BitlockerKey.ReadBasic.All",
+    "name": "BitlockerKey.ReadBasic.All",
+    "displayString": "Read basic BitLocker key information",
+    "description": "Allows an app to read the BitLocker key's properties for all devices in the tenant. The recovery key is not returned.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_BitlockerKey.Read.All",
+    "name": "BitlockerKey.Read.All",
+    "displayString": "Read the BitLocker key",
+    "description": "Allows an app to read the BitLocker keys for all devices in the tenant. The recovery key is returned.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
   },
   {
     "id": "delegated_Bookings.Read.All",
@@ -247,6 +291,54 @@
     "type": "application"
   },
   {
+    "id": "application_Calls.Initiate.All",
+    "name": "Calls.Initiate.All",
+    "displayString": "Initiate outgoing 1:1 calls from the app (preview)",
+    "description": "Allows the app to place outbound calls to a single user and transfer calls to users in your organization\u2019s directory, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_Calls.InitiateGroupCall.All",
+    "name": "Calls.InitiateGroupCall.All",
+    "displayString": "Initiate outgoing group calls from the app (preview)",
+    "description": "Allows the app to place outbound calls to multiple users and add participants to meetings in your organization, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_Calls.JoinGroupCall.All",
+    "name": "Calls.JoinGroupCall.All",
+    "displayString": "Join group calls and meetings as an app (preview)",
+    "description": "Allows the app to join group calls and scheduled meetings in your organization, without a signed-in user. The app will be joined with the privileges of a directory user to meetings in your tenant.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_Calls.JoinGroupCallasGuest.All",
+    "name": "Calls.JoinGroupCallasGuest.All",
+    "displayString": "Join group calls and meetings as a guest (preview)",
+    "description": "Allows the app to anonymously join group calls and scheduled meetings in your organization, without a signed-in user. The app will be joined as a guest to meetings in your tenant.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_Calls.AccessMedia.All*",
+    "name": "Calls.AccessMedia.All*",
+    "displayString": "Access media streams in a call as an app (preview)",
+    "description": "Allows the app to get direct access to media streams in a call, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_CallRecords.Read.All",
+    "name": "CallRecords.Read.All",
+    "displayString": "Read all call records",
+    "description": "Allows the app to read call records for all calls and online meetings without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
     "id": "delegated_Channel.ReadBasic.All",
     "name": "Channel.ReadBasic.All",
     "displayString": "Read the names and descriptions of channels.",
@@ -301,142 +393,13 @@
     "isMsaSupported": false
   },
   {
-    "id": "delegated_ChannelSettings.Read.All",
-    "name": "ChannelSettings.Read.All",
-    "displayString": "Read the names, descriptions, and settings of channels.",
-    "description": "Read all channel names, channel descriptions, and channel settings, on behalf of the signed-in user.",
-    "needAdminConsent": true,
-    "type": "delegated",
-    "isMsaSupported": false
-  },
-  {
-    "id": "delegated_ChannelSettings.ReadWrite.All",
-    "name": "ChannelSettings.ReadWrite.All",
-    "displayString": "Read and write the names, descriptions, and settings of channels.",
-    "description": "Read and write the names, descriptions, and settings of all channels, on behalf of the signed-in user.",
-    "needAdminConsent": true,
-    "type": "delegated",
-    "isMsaSupported": false
-  },
-  {
-    "id": "application_ChannelSettings.Read.All",
-    "name": "ChannelSettings.Read.All",
-    "displayString": "Read the names, descriptions, and settings of all channels.",
-    "description": "Read all channel names, channel descriptions, and channel settings, without a signed-in user.",
+    "id": "application_Teamwork.Migrate.All",
+    "name": "Teamwork.Migrate.All",
+    "displayString": "Manage migration to Microsoft Teams",
+    "description": "Creating and managing resources for migration to Microsoft Teams",
     "needAdminConsent": true,
     "type": "application",
-    "isMsaSupported": false
-  },
-  {
-    "id": "application_ChannelSettings.ReadWrite.All",
-    "name": "ChannelSettings.ReadWrite.All",
-    "displayString": "Read and write the names, descriptions, and settings of all channels.",
-    "description": "Read and write the names, descriptions, and settings of all channels, without a signed-in user.",
-    "needAdminConsent": true,
-    "type": "application",
-    "isMsaSupported": false
-  },
-  {
-    "id": "application_Calls.Initiate.All",
-    "name": "Calls.Initiate.All",
-    "displayString": "Initiate outgoing 1:1 calls from the app (preview)",
-    "description": "Allows the app to place outbound calls to a single user and transfer calls to users in your organization\u2019s directory, without a signed-in user.",
-    "needAdminConsent": true,
-    "type": "application"
-  },
-  {
-    "id": "application_Calls.InitiateGroupCall.All",
-    "name": "Calls.InitiateGroupCall.All",
-    "displayString": "Initiate outgoing group calls from the app (preview)",
-    "description": "Allows the app to place outbound calls to multiple users and add participants to meetings in your organization, without a signed-in user.",
-    "needAdminConsent": true,
-    "type": "application"
-  },
-  {
-    "id": "application_Calls.JoinGroupCall.All",
-    "name": "Calls.JoinGroupCall.All",
-    "displayString": "Join group calls and meetings as an app (preview)",
-    "description": "Allows the app to join group calls and scheduled meetings in your organization, without a signed-in user. The app will be joined with the privileges of a directory user to meetings in your tenant.",
-    "needAdminConsent": true,
-    "type": "application"
-  },
-  {
-    "id": "application_Calls.JoinGroupCallasGuest.All",
-    "name": "Calls.JoinGroupCallasGuest.All",
-    "displayString": "Join group calls and meetings as a guest (preview)",
-    "description": "Allows the app to anonymously join group calls and scheduled meetings in your organization, without a signed-in user. The app will be joined as a guest to meetings in your tenant.",
-    "needAdminConsent": true,
-    "type": "application"
-  },
-  {
-    "id": "application_Calls.AccessMedia.All*",
-    "name": "Calls.AccessMedia.All*",
-    "displayString": "Access media streams in a call as an app (preview)",
-    "description": "Allows the app to get direct access to media streams in a call, without a signed-in user.",
-    "needAdminConsent": true,
-    "type": "application"
-  },
-  {
-    "id": "application_CallRecords.Read.All",
-    "name": "CallRecords.Read.All",
-    "displayString": "Read all call records",
-    "description": "Allows the app to read call records for all calls and online meetings without a signed-in user.",
-    "needAdminConsent": true,
-    "type": "application"
-  },
-  {
-    "id": "delegated_ChannelMessage.Delete (private preview)",
-    "name": "ChannelMessage.Delete (private preview)",
-    "displayString": "Delete user's channel messages",
-    "description": "Allows an app to delete channel messages in Microsoft Teams, on behalf of the signed-in user.",
-    "needAdminConsent": true,
-    "type": "delegated",
-    "isMsaSupported": false
-  },
-  {
-    "id": "delegated_ChannelMessage.Edit (private preview)",
-    "name": "ChannelMessage.Edit (private preview)",
-    "displayString": "Edit user's channel messages",
-    "description": "Allows an app to edit channel messages in Microsoft Teams, on behalf of the signed-in user.",
-    "needAdminConsent": true,
-    "type": "delegated",
-    "isMsaSupported": false
-  },
-  {
-    "id": "delegated_ChannelMessage.Read.All",
-    "name": "ChannelMessage.Read.All",
-    "displayString": "Read user channel messages",
-    "description": "Allows an app to read a channel's messages in Microsoft Teams, on behalf of the signed-in user.",
-    "needAdminConsent": true,
-    "type": "delegated",
-    "isMsaSupported": false
-  },
-  {
-    "id": "delegated_ChannelMessage.Send",
-    "name": "ChannelMessage.Send",
-    "displayString": "Send channel messages",
-    "description": "Allows an app to send channel messages in Microsoft Teams, on behalf of the signed-in user.",
-    "needAdminConsent": true,
-    "type": "delegated",
-    "isMsaSupported": false
-  },
-  {
-    "id": "application_ChannelMessage.Read.All",
-    "name": "ChannelMessage.Read.All",
-    "displayString": "Read all channel messages\u00a0",
-    "description": "Allows the app to read all channel messages in Microsoft Teams, without a signed-in user.",
-    "needAdminConsent": true,
-    "type": "application",
-    "isMsaSupported": false
-  },
-  {
-    "id": "application_ChannelMessage.UpdatePolicyViolation.All",
-    "name": "ChannelMessage.UpdatePolicyViolation.All",
-    "displayString": "Flag channel messages for violating policy",
-    "description": "Allows the app to update Microsoft Teams channel messages by patching a set of Data Loss Prevention (DLP) policy violation properties to handle the output of DLP processing.",
-    "needAdminConsent": true,
-    "type": "application",
-    "isMsaSupported": false
+    "isMsaSupported": true
   },
   {
     "id": "delegated_ChannelMember.Read.All",
@@ -475,6 +438,96 @@
     "isMsaSupported": false
   },
   {
+    "id": "delegated_ChannelMessage.Delete (private preview)",
+    "name": "ChannelMessage.Delete (private preview)",
+    "displayString": "Delete user's channel messages",
+    "description": "Allows an app to delete channel messages in Microsoft Teams, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_ChannelMessage.Edit (private preview)",
+    "name": "ChannelMessage.Edit (private preview)",
+    "displayString": "Edit user's channel messages",
+    "description": "Allows an app to edit channel messages in Microsoft Teams, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_ChannelMessage.Read.All",
+    "name": "ChannelMessage.Read.All",
+    "displayString": "Read user channel messages",
+    "description": "Allows an app to read a channel's messages in Microsoft Teams, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_ChannelMessage.Send",
+    "name": "ChannelMessage.Send",
+    "displayString": "Send channel messages",
+    "description": "Allows an app to send channel messages in Microsoft Teams, on behalf of the signed-in user.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_ChannelMessage.Read.All",
+    "name": "ChannelMessage.Read.All",
+    "displayString": "Read all channel messages\u00a0",
+    "description": "Allows the app to read all channel messages in Microsoft Teams, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_ChannelMessage.UpdatePolicyViolation.All",
+    "name": "ChannelMessage.UpdatePolicyViolation.All",
+    "displayString": "Flag channel messages for violating policy",
+    "description": "Allows the app to update Microsoft Teams channel messages by patching a set of Data Loss Prevention (DLP) policy violation properties to handle the output of DLP processing.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_ChannelSettings.Read.All",
+    "name": "ChannelSettings.Read.All",
+    "displayString": "Read the names, descriptions, and settings of channels.",
+    "description": "Read all channel names, channel descriptions, and channel settings, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_ChannelSettings.ReadWrite.All",
+    "name": "ChannelSettings.ReadWrite.All",
+    "displayString": "Read and write the names, descriptions, and settings of channels.",
+    "description": "Read and write the names, descriptions, and settings of all channels, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_ChannelSettings.Read.All",
+    "name": "ChannelSettings.Read.All",
+    "displayString": "Read the names, descriptions, and settings of all channels.",
+    "description": "Read all channel names, channel descriptions, and channel settings, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_ChannelSettings.ReadWrite.All",
+    "name": "ChannelSettings.ReadWrite.All",
+    "displayString": "Read and write the names, descriptions, and settings of all channels.",
+    "description": "Read and write the names, descriptions, and settings of all channels, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
     "id": "delegated_Chat.Read",
     "name": "Chat.Read",
     "displayString": "Read your chat messages\u00a0",
@@ -502,15 +555,6 @@
     "isMsaSupported": false
   },
   {
-    "id": "delegated_Chat.Send (private preview)",
-    "name": "Chat.Send (private preview)",
-    "displayString": "Send user chat messages",
-    "description": "Allows an app to send 1:1 and group chat messages in Microsoft Teams, on behalf of the signed-in user.",
-    "needAdminConsent": false,
-    "type": "delegated",
-    "isMsaSupported": false
-  },
-  {
     "id": "application_Chat.Read.All",
     "name": "Chat.Read.All",
     "displayString": "Read all chat messages\u00a0",
@@ -524,7 +568,7 @@
     "name": "Chat.ReadBasic.All",
     "displayString": "Read names and members of user chat threads",
     "description": "Read names and members of all chat threads.",
-    "needAdminConsent": false,
+    "needAdminConsent": true,
     "type": "application",
     "isMsaSupported": false
   },
@@ -538,15 +582,6 @@
     "isMsaSupported": false
   },
   {
-    "id": "application_Chat.Send.All (private preview)",
-    "name": "Chat.Send.All (private preview)",
-    "displayString": "Send user chat messages",
-    "description": "Allows an app to send 1:1 and group chat messages in Microsoft Teams without a signed-in user.",
-    "needAdminConsent": false,
-    "type": "application",
-    "isMsaSupported": false
-  },
-  {
     "id": "delegated_ChatMessage.Send (private preview)",
     "name": "ChatMessage.Send (private preview)",
     "displayString": "Send user chat messages",
@@ -554,6 +589,76 @@
     "needAdminConsent": false,
     "type": "delegated",
     "isMsaSupported": false
+  },
+  {
+    "id": "delegated_CloudPC.Read.All",
+    "name": "CloudPC.Read.All",
+    "displayString": "Read Cloud PCs",
+    "description": "Allows the app to read Cloud PC objects such as provisioning policies, on behalf of the signed-in user.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_CloudPC.ReadWrite.All",
+    "name": "CloudPC.ReadWrite.All",
+    "displayString": "Read and write Cloud PCs",
+    "description": "Allows the app to create, read, update, and delete Cloud PC objects such as on-premises connections, provisioning policies, and device images, on behalf of the user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_CloudPC.Read.All",
+    "name": "CloudPC.Read.All",
+    "displayString": "Read Cloud PCs",
+    "description": "Allows the app to read Cloud PC objects such as provisioning policies, without a signed-in user.",
+    "needAdminConsent": false,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_CloudPC.ReadWrite.All",
+    "name": "CloudPC.ReadWrite.All",
+    "displayString": "Read and write Cloud PCs",
+    "description": "Allows the app to create, read, update, and delete Cloud PC objects such as on-premises connections, provisioning policies, and device images, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_ConsentRequest.Read.All",
+    "name": "ConsentRequest.Read.All",
+    "displayString": "Read consent requests",
+    "description": "Allows the app to read consent requests and approvals on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_ConsentRequest.ReadWrite.All",
+    "name": "ConsentRequest.ReadWrite.All",
+    "displayString": "Read and write consent requests",
+    "description": "Allows the app to read app consent requests and approvals, and deny or approve those requests on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_ConsentRequest.Read.All",
+    "name": "ConsentRequest.Read.All",
+    "displayString": "Read consent requests",
+    "description": "Allows the app to read app consent requests and approvals without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_ConsentRequest.ReadWrite.All",
+    "name": "ConsentRequest.ReadWrite.All",
+    "displayString": "Read and write consent requests",
+    "description": "Allows the app to read app consent requests and approvals, and deny or approve those requests without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
   },
   {
     "id": "delegated_Contacts.Read",
@@ -617,6 +722,15 @@
     "isMsaSupported": true
   },
   {
+    "id": "delegated_Device.Read.All",
+    "name": "Device.Read.All",
+    "displayString": "Read all devices",
+    "description": "Allows the app to read your organization's devices' configuration information on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": true
+  },
+  {
     "id": "delegated_Device.Command",
     "name": "Device.Command",
     "displayString": "Communicate with user devices",
@@ -624,6 +738,14 @@
     "needAdminConsent": false,
     "type": "delegated",
     "isMsaSupported": true
+  },
+  {
+    "id": "application_Device.Read.All",
+    "name": "Device.Read.All",
+    "displayString": "Read all devices",
+    "description": "Allows the app to read your organization's devices' configuration information without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
   },
   {
     "id": "application_Device.ReadWrite.All",
@@ -661,24 +783,6 @@
     "isMsaSupported": false
   },
   {
-    "id": "delegated_PrivilegedAccess.ReadWrite.AzureAD",
-    "name": "PrivilegedAccess.ReadWrite.AzureAD",
-    "displayString": "Read and write Privileged Identity Management data for Directory",
-    "description": "Allows the app to have read and write access to Privileged Identity Management APIs for Azure AD.",
-    "needAdminConsent": true,
-    "type": "delegated",
-    "isMsaSupported": false
-  },
-  {
-    "id": "delegated_PrivilegedAccess.ReadWrite.AzureResources",
-    "name": "PrivilegedAccess.ReadWrite.AzureResources",
-    "displayString": "Read and write Privileged Identity Management data for Azure Resources",
-    "description": "Allows the app to have read and write access to Privileged Identity Management APIs for Azure resources.",
-    "needAdminConsent": true,
-    "type": "delegated",
-    "isMsaSupported": false
-  },
-  {
     "id": "application_Directory.Read.All",
     "name": "Directory.Read.All",
     "displayString": "Read directory data",
@@ -701,6 +805,24 @@
     "description": "Allows the app to read and write domains without a signed-in user.",
     "needAdminConsent": true,
     "type": "application"
+  },
+  {
+    "id": "delegated_eDiscovery.Read.All",
+    "name": "eDiscovery.Read.All",
+    "displayString": "Read user eDiscovery case data",
+    "description": "Allows the app to read eDiscovery objects such as cases, custodians, review sets and other related objects on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_eDiscovery.ReadWrite.All",
+    "name": "eDiscovery.ReadWrite.All",
+    "displayString": "Read and write eDiscovery case data",
+    "description": "Allows the app to read and write eDiscovery objects such as cases, custodians, review sets and other related objects on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
   },
   {
     "id": "delegated_EduAdministration.Read",
@@ -872,6 +994,22 @@
     "type": "delegated"
   },
   {
+    "id": "application_EntitlementManagement.ReadWrite.All",
+    "name": "EntitlementManagement.ReadWrite.All",
+    "displayString": "Read and write entitlement management resources",
+    "description": "Allows the app to read and manage access packages and related entitlement management resources.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_EntitlementManagement.Read.All",
+    "name": "EntitlementManagement.Read.All",
+    "displayString": "Read entitlement management resources",
+    "description": "Allows the app to read access packages and related entitlement management resources.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
     "id": "delegated_Files.Read",
     "name": "Files.Read",
     "displayString": "Read user files",
@@ -914,7 +1052,7 @@
     "description": "(Preview) Allows the app to read, create, update, and delete files in the application's folder.",
     "needAdminConsent": false,
     "type": "delegated",
-    "isMsaSupported": false
+    "isMsaSupported": true
   },
   {
     "id": "delegated_Files.Read.Selected",
@@ -1108,6 +1246,59 @@
     "name": "IdentityRiskyUser.ReadWrite.All",
     "displayString": "Read and update identity user risk  information",
     "description": "Allows the app to read and update identity user risk information for all users in your organization without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "delegated_IdentityUserFlow.Read.All",
+    "name": "IdentityUserFlow.Read.All",
+    "displayString": "Read all identity user flows in a tenant",
+    "description": "Allows the app to read your organization's user flows.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_IdentityUserFlow.ReadWrite.All",
+    "name": "IdentityUserFlow.ReadWrite.All",
+    "displayString": "Read and write all identity user flows in a tenant.",
+    "description": "Allows the app to read or write your organization's user flows.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_IdentityUserFlow.Read.All",
+    "name": "IdentityUserFlow.Read.All",
+    "displayString": "Read all identity user flows in a tenant",
+    "description": "Allows the app to read your organization's user flows.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_IdentityUserFlow.ReadWrite.All",
+    "name": "IdentityUserFlow.ReadWrite.All",
+    "displayString": "Read and write all identity user flows in a tenant.",
+    "description": "Allows the app to read or write your organization's user flows.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_InformationProtectionPolicy.Read",
+    "name": "InformationProtectionPolicy.Read",
+    "displayString": "Read user sensitivity labels and label policies",
+    "description": "Allows an app to read information protection sensitivity labels and label policy settings, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_InformationProtectionPolicy.Read.All",
+    "name": "InformationProtectionPolicy.Read.All",
+    "displayString": "Read all published labels and label policies for an organization",
+    "description": "Allows an app to read published sensitivity labels and label policy settings for the entire organization or a specific user, without a signed in user.",
     "needAdminConsent": true,
     "type": "application"
   },
@@ -1391,13 +1582,39 @@
     "isMsaSupported": true
   },
   {
+    "id": "delegated_IMAP.AccessAsUser.All",
+    "name": "IMAP.AccessAsUser.All",
+    "displayString": "Read and write access to user mail via IMAP",
+    "description": "Allows the app to read, update, create and delete email in user mailboxes. Does not include permission to send mail.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": true
+  },
+  {
+    "id": "delegated_POP.AccessAsUser.All",
+    "name": "POP.AccessAsUser.All",
+    "displayString": "Read and write access to user mail via POP",
+    "description": "Allows the app to read, update, create and delete email in user mailboxes. Does not include permission to send mail.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": true
+  },
+  {
+    "id": "delegated_SMTP.Send",
+    "name": "SMTP.Send",
+    "displayString": "Send mail as a user using SMTP AUTH",
+    "description": "Allows the app to send mail as users in the organization.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": true
+  },
+  {
     "id": "application_Mail.Read",
     "name": "Mail.Read",
     "displayString": "Read mail in all mailboxes",
     "description": "Allows the app to read mail in all mailboxes without a signed-in user.",
     "needAdminConsent": true,
-    "type": "application",
-    "isMsaSupported": false
+    "type": "application"
   },
   {
     "id": "application_Mail.ReadBasic.All",
@@ -1405,8 +1622,7 @@
     "displayString": "Read all users basic mail",
     "description": "Allows the app to read all users mailboxes except Body, BodyPreview, UniqueBody, Attachments, ExtendedProperties, and Extensions. Does not include permissions to search messages.",
     "needAdminConsent": true,
-    "type": "application",
-    "isMsaSupported": false
+    "type": "application"
   },
   {
     "id": "application_Mail.ReadWrite",
@@ -1414,8 +1630,7 @@
     "displayString": "Read and write mail in all mailboxes",
     "description": "Allows the app to create, read, update, and delete mail in all mailboxes without a signed-in user. Does not include permission to send mail.",
     "needAdminConsent": true,
-    "type": "application",
-    "isMsaSupported": false
+    "type": "application"
   },
   {
     "id": "application_Mail.Send",
@@ -1423,17 +1638,15 @@
     "displayString": "Send mail as any user",
     "description": "Allows the app to send mail as any user without a signed-in user.",
     "needAdminConsent": true,
-    "type": "application",
-    "isMsaSupported": false
+    "type": "application"
   },
   {
     "id": "application_MailboxSettings.Read",
     "name": "MailboxSettings.Read",
-    "displayString": "Read all user mailbox settings\u00a0",
+    "displayString": "Read all user mailbox settings",
     "description": "Allows the app to read user's mailbox settings without a signed-in user. Does not include permission to send mail.",
     "needAdminConsent": false,
-    "type": "application",
-    "isMsaSupported": false
+    "type": "application"
   },
   {
     "id": "application_MailboxSettings.ReadWrite",
@@ -1441,8 +1654,7 @@
     "displayString": "Read and write all user mailbox settings",
     "description": "Allows the app to create, read, update, and delete user's mailbox settings without a signed-in user. Does not include permission to send mail.",
     "needAdminConsent": true,
-    "type": "application",
-    "isMsaSupported": false
+    "type": "application"
   },
   {
     "id": "delegated_Member.Read.Hidden",
@@ -1561,7 +1773,7 @@
     "id": "application_OnlineMeetings.Read.All",
     "name": "OnlineMeetings.Read.All",
     "displayString": "Read Online Meeting details from the app",
-    "description": "Allows the app to read VTC associated online meeting details in your organization without a signed-in user.",
+    "description": "Allows the app to read online meeting details in your organization without a signed-in user.",
     "needAdminConsent": true,
     "type": "application"
   },
@@ -1705,6 +1917,57 @@
     "type": "application"
   },
   {
+    "id": "delegated_PrivilegedAccess.ReadWrite.AzureAD",
+    "name": "PrivilegedAccess.ReadWrite.AzureAD",
+    "displayString": "Read and write Privileged Identity Management data for Directory",
+    "description": "Allows the app to have read and write access to Privileged Identity Management APIs for Azure AD.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrivilegedAccess.ReadWrite.AzureADGroups",
+    "name": "PrivilegedAccess.ReadWrite.AzureADGroups",
+    "displayString": "Read and write Privileged Identity Management data for privileged access groups",
+    "description": "Allows the app to have read and write access to Privileged Identity Management APIs for groups.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrivilegedAccess.ReadWrite.AzureResources",
+    "name": "PrivilegedAccess.ReadWrite.AzureResources",
+    "displayString": "Read and write Privileged Identity Management data for Azure Resources",
+    "description": "Allows the app to have read and write access to Privileged Identity Management APIs for Azure resources.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_PrivilegedAccess.Read.AzureAD",
+    "name": "PrivilegedAccess.Read.AzureAD",
+    "displayString": "Read Privileged Identity Management data for Directory",
+    "description": "Allows the app to have read access to Privileged Identity Management APIs for Azure AD.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_PrivilegedAccess.Read.AzureADGroups",
+    "name": "PrivilegedAccess.Read.AzureADGroups",
+    "displayString": "Read Privileged Identity Management data for privileged access groups",
+    "description": "Allows the app to have read access to Privileged Identity Management APIs for groups.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_PrivilegedAccess.Read.AzureADResources",
+    "name": "PrivilegedAccess.Read.AzureADResources",
+    "displayString": "Read Privileged Identity Management data for Azure resources",
+    "description": "Allows the app to have read access to Privileged Identity Management APIs for Azure AD resources.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
     "id": "delegated_Place.Read.All",
     "name": "Place.Read.All",
     "displayString": "Read all company places",
@@ -1740,6 +2003,24 @@
     "isMsaSupported": false
   },
   {
+    "id": "delegated_Policy.Read.PermissionGrant",
+    "name": "Policy.Read.PermissionGrant",
+    "displayString": "Read consent and permission grant policies",
+    "description": "Allows the app to read policies related to consent and permission grants for applications, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_Policy.ReadWrite.AccessReview",
+    "name": "Policy.ReadWrite.AccessReview",
+    "displayString": "Read and write your organization's access review policy",
+    "description": "Allows the app to read and write your organization's access review policy on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
     "id": "delegated_Policy.ReadWrite.ApplicationConfiguration",
     "name": "Policy.ReadWrite.ApplicationConfiguration",
     "displayString": "Read and write your organization's application configuration policies",
@@ -1758,10 +2039,28 @@
     "isMsaSupported": false
   },
   {
+    "id": "delegated_Policy.ReadWrite.Authorization",
+    "name": "Policy.ReadWrite.Authorization",
+    "displayString": "Read and write your organization's authorization policy",
+    "description": "Allows the app to read and write your organization's authorization policy on behalf of the signed-in user.  For example, authorization policies can control some of the permissions that the out-of-the-box user role has by default.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
     "id": "delegated_Policy.ReadWrite.ConditionalAccess",
     "name": "Policy.ReadWrite.ConditionalAccess",
     "displayString": "Read and write your organization's conditional access policies",
     "description": "Allows the app to read and write your organization's conditional access policies on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_Policy.ReadWrite.ConsentRequest",
+    "name": "Policy.ReadWrite.ConsentRequest",
+    "displayString": "Read and write your organization's consent requests policy",
+    "description": "Allows the app to read and write your organization's consent requests policy on behalf of the signed-in user.",
     "needAdminConsent": true,
     "type": "delegated",
     "isMsaSupported": false
@@ -1776,10 +2075,37 @@
     "isMsaSupported": false
   },
   {
+    "id": "delegated_Policy.ReadWrite.PermissionGrant",
+    "name": "Policy.ReadWrite.PermissionGrant",
+    "displayString": "Manage consent and permission grant policies",
+    "description": "Allows the app to manage policies related to consent and permission grants for applications, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
     "id": "delegated_Policy.ReadWrite.TrustFramework",
     "name": "Policy.ReadWrite.TrustFramework",
     "displayString": "Read and write your organization's trust framework policies",
     "description": "Allows the app to read and write your organization's trust framework policies on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_Policy.ReadWrite.AuthenticationMethod",
+    "name": "Policy.ReadWrite.AuthenticationMethod",
+    "displayString": "Read and write your organization's authentication method policies",
+    "description": "Allows the app to read and write the authentication method policies, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_Policy.ReadWrite.MobilityManagement",
+    "name": "Policy.ReadWrite.MobilityManagement",
+    "displayString": "Read and write your organization's mobility management policies.",
+    "description": "Allows the app to read and write the mobility management policies on behalf of the signed-in user. These control the settings for mobile device management (MDM) and mobile application management (MAM) applications.",
     "needAdminConsent": true,
     "type": "delegated",
     "isMsaSupported": false
@@ -1790,7 +2116,17 @@
     "displayString": "Read your organization's policies",
     "description": "Allows the app to read all your organization's policies without a signed in user.",
     "needAdminConsent": true,
-    "type": "application"
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_Policy.Read.PermissionGrant",
+    "name": "Policy.Read.PermissionGrant",
+    "displayString": "Read consent and permission grant policies",
+    "description": "Allows the app to read policies related to consent and permission grants for applications, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
   },
   {
     "id": "application_Policy.Read.ApplicationConfiguration",
@@ -1798,7 +2134,26 @@
     "displayString": "Read your organization's application configuration policies",
     "description": "Allows the app to read all your organization's application configuration policies without a signed in user.",
     "needAdminConsent": true,
-    "type": "application"
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_Policy.ReadWrite.AccessReview",
+    "name": "Policy.ReadWrite.AccessReview",
+    "displayString": "Read and write your organization's access review policy",
+    "description": "Allows the app to read and write your organization's access review policy, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_Policy.ReadWrite.ApplicationConfiguration",
+    "name": "Policy.ReadWrite.ApplicationConfiguration",
+    "displayString": "Read and write your organization's application configuration policies",
+    "description": "Allows the app to read and write your organization's application configuration policies, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
   },
   {
     "id": "application_Policy.ReadWrite.AuthenticationFlows",
@@ -1806,7 +2161,26 @@
     "displayString": "Read and write your organization's authentication flow policies",
     "description": "Allows the app to read and write the authentication flow policies for the tenant, without a signed in user.",
     "needAdminConsent": true,
-    "type": "application"
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_Policy.ReadWrite.Authorization",
+    "name": "Policy.ReadWrite.Authorization",
+    "displayString": "Read and write your organization's authorization policy",
+    "description": "Allows the app to read and write your organization's authorization policy on behalf of the signed-in user.  For example, authorization policies can control some of the permissions that the out-of-the-box user role has by default.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_Policy.ReadWrite.ConsentRequest",
+    "name": "Policy.ReadWrite.ConsentRequest",
+    "displayString": "Read and write your organization's consent requests policy",
+    "description": "Allows the app to read and write your organization's consent requests policy without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
   },
   {
     "id": "application_Policy.ReadWrite.FeatureRollout",
@@ -1814,7 +2188,17 @@
     "displayString": "Read and write feature rollout policies",
     "description": "Allows the app to read and write feature rollout policies without a signed-in user. Includes abilities to assign and remove users and groups to rollout of a specific feature.",
     "needAdminConsent": true,
-    "type": "application"
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_Policy.ReadWrite.PermissionGrant",
+    "name": "Policy.ReadWrite.PermissionGrant",
+    "displayString": "Manage consent and permission grant policies",
+    "description": "Allows the app to manage policies related to consent and permission grants for applications, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
   },
   {
     "id": "application_Policy.ReadWrite.TrustFramework",
@@ -1822,7 +2206,17 @@
     "displayString": "Read and write your organization's trust framework policies",
     "description": "Allows the app to read and write your organization's trust framework policies without a signed in user.",
     "needAdminConsent": true,
-    "type": "application"
+    "type": "application",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_Policy.ReadWrite.AuthenticationMethod",
+    "name": "Policy.ReadWrite.AuthenticationMethod",
+    "displayString": "Read and write your organization's authentication method policies",
+    "description": "Allows the app to read and write the authentication method policies, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": false
   },
   {
     "id": "delegated_Presence.Read",
@@ -1878,7 +2272,7 @@
     "id": "delegated_Reports.Read.All",
     "name": "Reports.Read.All",
     "displayString": "Read all usage reports",
-    "description": "Allows an app to read all service usage reports on behalf of the signed-in user. Services that provide usage reports include Office 365 and Azure Active Directory.",
+    "description": "Allows an app to read all service usage reports on behalf of the signed-in user. Services that provide usage reports include Microsoft 365 and Azure Active Directory.",
     "needAdminConsent": true,
     "type": "delegated",
     "isMsaSupported": false
@@ -1887,14 +2281,23 @@
     "id": "application_Reports.Read.All",
     "name": "Reports.Read.All",
     "displayString": "Read all usage reports",
-    "description": "Allows an app to read all service usage reports without a signed-in user. Services that provide usage reports include Office 365 and Azure Active Directory.",
+    "description": "Allows an app to read all service usage reports without a signed-in user. Services that provide usage reports include Microsoft 365 and Azure Active Directory.",
     "needAdminConsent": true,
     "type": "application"
   },
   {
+    "id": "delegated_RoleManagement.Read.All",
+    "name": "RoleManagement.Read.All",
+    "displayString": "Read role management data for all RBAC providers",
+    "description": "Allows the app to read the role-based access control (RBAC) settings for all supported RBAC providers, on behalf of the signed-in user. This includes reading role definitions and role assignments.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
     "id": "delegated_RoleManagement.Read.Directory",
     "name": "RoleManagement.Read.Directory",
-    "displayString": "Read directory RBAC settings",
+    "displayString": "Read role management data for Azure AD",
     "description": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, on behalf of the signed-in user.  This includes reading directory role templates, directory roles and memberships.",
     "needAdminConsent": true,
     "type": "delegated",
@@ -1903,16 +2306,24 @@
   {
     "id": "delegated_RoleManagement.ReadWrite.Directory",
     "name": "RoleManagement.ReadWrite.Directory",
-    "displayString": "Read and write directory RBAC settings",
+    "displayString": "Read and write role management data for Azure AD",
     "description": "Allows the app to read and manage the role-based access control (RBAC) settings for your company's directory, on behalf of the signed-in user. This includes instantiating directory roles and managing directory role membership, and reading directory role templates, directory roles and memberships.",
     "needAdminConsent": true,
     "type": "delegated",
     "isMsaSupported": false
   },
   {
+    "id": "application_RoleManagement.Read.All",
+    "name": "RoleManagement.Read.All",
+    "displayString": "Read role management data for all RBAC providers",
+    "description": "Allows the app to read the role-based access control (RBAC) settings for all supported RBAC providers, without a signed-in user. This includes reading role definitions and role assignments.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
     "id": "application_RoleManagement.Read.Directory",
     "name": "RoleManagement.Read.Directory",
-    "displayString": "Read all directory RBAC settings",
+    "displayString": "Read role management data for Azure AD",
     "description": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, without a signed-in user.  This includes reading directory role templates, directory roles and memberships.",
     "needAdminConsent": true,
     "type": "application"
@@ -1920,7 +2331,7 @@
   {
     "id": "application_RoleManagement.ReadWrite.Directory",
     "name": "RoleManagement.ReadWrite.Directory",
-    "displayString": "Read and write all directory RBAC settings",
+    "displayString": "Read and write role management data for Azure AD",
     "description": "Allows the app to read and manage the role-based access control (RBAC) settings for your company's directory, without a signed-in user. This includes instantiating directory roles and managing directory role membership, and reading directory role templates, directory roles and memberships.",
     "needAdminConsent": true,
     "type": "application"
@@ -1944,10 +2355,46 @@
     "isMsaSupported": false
   },
   {
+    "id": "delegated_Schedule.ReadWrite.All",
+    "name": "Schedule.ReadWrite.All",
+    "displayString": "Read and Write Shifts service (Teams) data",
+    "description": "Allows an app to read and write schedule, schedule groups, shifts, and associated entities in shifts applications on behalf of the signed-in user.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_Schedule.Read.All",
+    "name": "Schedule.Read.All",
+    "displayString": "Read Shifts service (Teams) data",
+    "description": "Allows the app to read schedule, schedule groups, shifts, and associated entities in shifts applications on behalf of the signed-in user.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_WorkforceIntegration.ReadWrite.All (private preview)",
+    "name": "WorkforceIntegration.ReadWrite.All (private preview)",
+    "displayString": "Read and write workforce integrations",
+    "description": "Allows the app to manage workforce integrations, to synchronize data from Microsoft Teams Shifts with an integrated system, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_WorkforceIntegration.Read.All (private preview)",
+    "name": "WorkforceIntegration.Read.All (private preview)",
+    "displayString": "Read and write workforce integrations",
+    "description": "Allows the app to manage workforce integrations, to synchronize data from Microsoft Teams Shifts with an integrated system, on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
     "id": "application_ExternalItem.ReadWrite.All",
     "name": "ExternalItem.ReadWrite.All",
     "displayString": "Read and Write external data",
-    "description": "Allows an app to write external data into the indexing API.",
+    "description": "Allows an app to write external with the Microsoft Graph connectors indexing API.",
     "needAdminConsent": true,
     "type": "application",
     "isMsaSupported": false
@@ -1956,7 +2403,7 @@
     "id": "delegated_ExternalItem.Read.All",
     "name": "ExternalItem.Read.All",
     "displayString": "Read external data",
-    "description": "Allows an app to read external data ingested via the Microsoft Search indexing API",
+    "description": "Allows an app to query data ingested with Microsoft Graph connectors",
     "needAdminConsent": true,
     "type": "delegated",
     "isMsaSupported": false
@@ -1992,7 +2439,7 @@
     "id": "delegated_SecurityActions.ReadWrite.All",
     "name": "SecurityActions.ReadWrite.All",
     "displayString": "Read and update your organization's security actions",
-    "description": "Allows the app to read your organization\u2019s security actions on behalf of the signed-in user.",
+    "description": "Allows the app to read or update your organization\u2019s security actions on behalf of the signed-in user.",
     "needAdminConsent": true,
     "type": "delegated",
     "isMsaSupported": false
@@ -2010,7 +2457,7 @@
     "id": "delegated_ThreatIndicators.Read.All",
     "name": "ThreatIndicators.Read.All",
     "displayString": "Read your organization's threat indicators",
-    "description": "Allows the app to read your organization\u2019s security actions on behalf of the signed-in user.",
+    "description": "Allows the app to read all the threat indicators for your organization, on behalf of the signed-in user.",
     "needAdminConsent": true,
     "type": "delegated",
     "isMsaSupported": false
@@ -2059,7 +2506,41 @@
     "id": "application_ThreatIndicators.Read.All",
     "name": "ThreatIndicators.Read.All",
     "displayString": "Manage threat indicators this app creates or owns",
-    "description": "Allows the app to read all the indicators for your organization, without a signed-in user.",
+    "description": "Allows the app to read all the threat indicators for your organization, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "delegated_ShortNotes.Read",
+    "name": "ShortNotes.Read",
+    "displayString": "Read short notes of the signed-in user",
+    "description": "Allows the app to read all the short notes a sign-in user has access to.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": true
+  },
+  {
+    "id": "delegated_ShortNotes.ReadWrite",
+    "name": "ShortNotes.ReadWrite",
+    "displayString": "Read, create, edit, and delete short notes of the signed-in user",
+    "description": "Allows the app to read, create, edit, and delete short notes of a signed-in user.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": true
+  },
+  {
+    "id": "application_ShortNotes.Read.All",
+    "name": "ShortNotes.Read.All",
+    "displayString": "Read all users' short notes",
+    "description": "Allows the app to read all the short notes without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_ShortNotes.ReadWrite.All",
+    "name": "ShortNotes.ReadWrite.All",
+    "displayString": "Read, create, edit, and delete all users' short notes",
+    "description": "Allows the app to read, create, edit, and delete all the short notes without a signed-in user.",
     "needAdminConsent": true,
     "type": "application"
   },
@@ -2132,10 +2613,18 @@
     "type": "application"
   },
   {
+    "id": "application_Sites.Selected",
+    "name": "Sites.Selected",
+    "displayString": "Access selected site collections",
+    "description": "Allow the application to access a subset of site collections without a signed in user.\u00a0\u00a0The specific site collections and the permissions granted will be configured in SharePoint Online.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
     "id": "delegated_Tasks.Read",
     "name": "Tasks.Read",
-    "displayString": "Read user tasks (preview)",
-    "description": "Allows the app to read user tasks.",
+    "displayString": "Read user\u2019s tasks and task lists (preview)",
+    "description": "Allows the app to read the signed-in user\u2019s tasks and task lists, including any shared with the user. Doesn't include permission to create, delete, or update anything.",
     "needAdminConsent": false,
     "type": "delegated",
     "isMsaSupported": true
@@ -2152,8 +2641,8 @@
   {
     "id": "delegated_Tasks.ReadWrite",
     "name": "Tasks.ReadWrite",
-    "displayString": "Create, read, update and delete user tasks and containers (preview)",
-    "description": "Allows the app to create, read, update and delete tasks and containers (and tasks in them) that are assigned to or shared with the signed-in user.",
+    "displayString": "Create, read, update, and delete user\u2019s tasks and task lists (preview)",
+    "description": "Allows the app to create, read, update, and delete the signed-in user's tasks and task lists, including any shared with the user.",
     "needAdminConsent": false,
     "type": "delegated",
     "isMsaSupported": true
@@ -2168,8 +2657,26 @@
     "isMsaSupported": false
   },
   {
-    "id": "delegated_Teams.ReadBasic.All",
-    "name": "Teams.ReadBasic.All",
+    "id": "delegated_TermStore.Read.All",
+    "name": "TermStore.Read.All",
+    "displayString": "Read term store data",
+    "description": "Allows app to read various terms, sets, and groups in the term store",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TermStore.ReadWrite.All",
+    "name": "TermStore.ReadWrite.All",
+    "displayString": "Read and write all term store data",
+    "description": "Allows the app to edit or delete terms, sets, and groups in the term store",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_Team.ReadBasic.All",
+    "name": "Team.ReadBasic.All",
     "displayString": "Read the names and descriptions of teams",
     "description": "Read the names and descriptions of teams, on behalf of the signed-in user.",
     "needAdminConsent": false,
@@ -2177,8 +2684,8 @@
     "isMsaSupported": false
   },
   {
-    "id": "delegated_Teams.Create (private preview)",
-    "name": "Teams.Create (private preview)",
+    "id": "delegated_Team.Create",
+    "name": "Team.Create",
     "displayString": "Create teams",
     "description": "Create teams, on behalf of the signed-in user.",
     "needAdminConsent": true,
@@ -2186,8 +2693,8 @@
     "isMsaSupported": false
   },
   {
-    "id": "application_Teams.ReadBasic.All",
-    "name": "Teams.ReadBasic.All",
+    "id": "application_Team.ReadBasic.All",
+    "name": "Team.ReadBasic.All",
     "displayString": "Get a list of all teams",
     "description": "Get a list of all teams, without a signed-in user.",
     "needAdminConsent": true,
@@ -2195,8 +2702,8 @@
     "isMsaSupported": false
   },
   {
-    "id": "application_Teams.Create (private preview)",
-    "name": "Teams.Create (private preview)",
+    "id": "application_Team.Create",
+    "name": "Team.Create",
     "displayString": "Create teams",
     "description": "Create teams, without a signed-in user.",
     "needAdminConsent": true,
@@ -2204,8 +2711,17 @@
     "isMsaSupported": false
   },
   {
-    "id": "delegated_TeamsSettings.Read.All",
-    "name": "TeamsSettings.Read.All",
+    "id": "application_Teamwork.Migrate.All",
+    "name": "Teamwork.Migrate.All",
+    "displayString": "Manage migration to Microsoft Teams",
+    "description": "Creating and managing resources for migration to Microsoft Teams",
+    "needAdminConsent": true,
+    "type": "application",
+    "isMsaSupported": true
+  },
+  {
+    "id": "delegated_TeamSettings.Read.All",
+    "name": "TeamSettings.Read.All",
     "displayString": "Read teams' settings",
     "description": "Read this team's settings, on behalf of the signed-in user.",
     "needAdminConsent": true,
@@ -2213,8 +2729,8 @@
     "isMsaSupported": false
   },
   {
-    "id": "delegated_TeamsSettings.ReadWrite.All",
-    "name": "TeamsSettings.ReadWrite.All",
+    "id": "delegated_TeamSettings.ReadWrite.All",
+    "name": "TeamSettings.ReadWrite.All",
     "displayString": "Read and change teams' settings",
     "description": "Read and change all teams' settings, on behalf of the signed-in user.",
     "needAdminConsent": true,
@@ -2222,8 +2738,8 @@
     "isMsaSupported": false
   },
   {
-    "id": "application_TeamsSettings.Read.All",
-    "name": "TeamsSettings.Read.All",
+    "id": "application_TeamSettings.Read.All",
+    "name": "TeamSettings.Read.All",
     "displayString": "Read all teams' settings",
     "description": "Read this team's settings, without a signed-in user.",
     "needAdminConsent": true,
@@ -2231,8 +2747,8 @@
     "isMsaSupported": false
   },
   {
-    "id": "application_TeamsSettings.ReadWrite.All",
-    "name": "TeamsSettings.ReadWrite.All",
+    "id": "application_TeamSettings.ReadWrite.All",
+    "name": "TeamSettings.ReadWrite.All",
     "displayString": "Read and change all teams' settings.",
     "description": "Read and change all teams' settings, without a signed-in user.",
     "needAdminConsent": true,
@@ -2249,10 +2765,10 @@
     "isMsaSupported": false
   },
   {
-    "id": "delegated_TeamsActivity.Send (private preview)",
-    "name": "TeamsActivity.Send (private preview)",
+    "id": "delegated_TeamsActivity.Send",
+    "name": "TeamsActivity.Send",
     "displayString": "Send a teamwork activity as the user",
-    "description": "Allows the app to create new activities in the user's teamwork activity feed, and send new activities to other users' activity feed, on behalf of the signed-in user.",
+    "description": "Allows the app to create new notifications in users' teamwork activity feeds on behalf of the signed in user. These notifications may not be discoverable or be held or governed by compliance policies.",
     "needAdminConsent": false,
     "type": "delegated",
     "isMsaSupported": false
@@ -2267,10 +2783,10 @@
     "isMsaSupported": false
   },
   {
-    "id": "application_TeamsActivity.Send (private preview)",
-    "name": "TeamsActivity.Send (private preview)",
+    "id": "application_TeamsActivity.Send",
+    "name": "TeamsActivity.Send",
     "displayString": "Send a teamwork activity to any user",
-    "description": "Allows the app to send new activities to any users' teamwork activity feed, without a signed-in user.",
+    "description": "Allows the app to create new notifications in users' teamwork activity feeds without a signed in user. These notifications may not be discoverable or be held or governed by compliance policies.",
     "needAdminConsent": true,
     "type": "application",
     "isMsaSupported": false
@@ -2310,6 +2826,108 @@
     "needAdminConsent": true,
     "type": "application",
     "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadForUser",
+    "name": "TeamsAppInstallation.ReadForUser",
+    "displayString": "Read user's installed Teams apps",
+    "description": "Allows the app to read the Teams apps that are installed for the signed-in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadWriteForUser",
+    "name": "TeamsAppInstallation.ReadWriteForUser",
+    "displayString": "Manage user's installed Teams apps",
+    "description": "Allows the app to read, install, upgrade, and uninstall Teams apps installed for the signed in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadWriteSelfForUser (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteSelfForUser (private preview)",
+    "displayString": "Allow the app to manage itself in teams",
+    "description": "Allows a Teams app to read, install, upgrade, and uninstall itself to teams the signed-in user can access.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadForTeam",
+    "name": "TeamsAppInstallation.ReadForTeam",
+    "displayString": "Read installed Teams apps in teams",
+    "description": "Allows the app to read the Teams apps that are installed in teams the signed-in user can access. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadWriteForTeam",
+    "name": "TeamsAppInstallation.ReadWriteForTeam",
+    "displayString": "Manage installed Teams apps in teams",
+    "description": "Allows the app to read, install, upgrade, and uninstall Teams apps in teams the signed-in user can access. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_TeamsAppInstallation.ReadWriteSelfForTeam (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteSelfForTeam (private preview)",
+    "displayString": "Allow the app to manage itself in teams",
+    "description": "Allows a Teams app to read, install, upgrade, and uninstall itself to teams the signed-in user can access.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadForUser.All",
+    "name": "TeamsAppInstallation.ReadForUser.All",
+    "displayString": "Read installed Teams apps for all users",
+    "description": "Allows the app to read the Teams apps that are installed for any user, without a signed-in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadWriteForUser.All",
+    "name": "TeamsAppInstallation.ReadWriteForUser.All",
+    "displayString": "Manage Teams apps for all users",
+    "description": "Allows the app to read, install, upgrade, and uninstall Teams apps for any user, without a signed-in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadWriteSelfForUser.All (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteSelfForUser.All (private preview)",
+    "displayString": "Allow the app to manage itself for all users",
+    "description": "Allows a Teams app to read, install, upgrade, and uninstall itself to any user, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadForTeam.All",
+    "name": "TeamsAppInstallation.ReadForTeam.All",
+    "displayString": "Read installed Teams apps for all teams",
+    "description": "Allows the app to read the Teams apps that are installed in any team, without a signed-in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadWriteForTeam.All",
+    "name": "TeamsAppInstallation.ReadWriteForTeam.All",
+    "displayString": "Manage Teams apps for all teams",
+    "description": "Allows the app to read, install, upgrade, and uninstall Teams apps in any team, without a signed-in user. Does not give the ability to read application-specific settings.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_TeamsAppInstallation.ReadWriteSelfForTeam.All (private preview)",
+    "name": "TeamsAppInstallation.ReadWriteSelfForTeam.All (private preview)",
+    "displayString": "Allow the Teams app to manage itself for all teams",
+    "description": "Allows a Teams app to read, install, upgrade, and uninstall itself in any team, without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
   },
   {
     "id": "delegated_TeamMember.Read.All",
@@ -2352,7 +2970,7 @@
     "name": "Team.ReadBasic.All",
     "displayString": "Read the names and descriptions of teams",
     "description": "Read the names and  descriptions of teams, on behalf of the signed-in user.",
-    "needAdminConsent": true,
+    "needAdminConsent": false,
     "type": "delegated",
     "isMsaSupported": false
   },
@@ -2611,6 +3229,250 @@
     "type": "application"
   },
   {
+    "id": "delegated_Printer.Create",
+    "name": "Printer.Create",
+    "displayString": "Register printers",
+    "description": "Allows the application to create (register) printers on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_Printer.FullControl.All",
+    "name": "Printer.FullControl.All",
+    "displayString": "Register, read, update, and unregister printers",
+    "description": "Allows the application to create (register), read, update, and delete (unregister) printers on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_Printer.Read.All",
+    "name": "Printer.Read.All",
+    "displayString": "Read printers",
+    "description": "Allows the application to read printers on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_Printer.ReadWrite.All",
+    "name": "Printer.ReadWrite.All",
+    "displayString": "Read and update printers",
+    "description": "Allows the application to read and update printers on behalf of the signed-in user.\u00a0Does not allow creating (registering) or deleting (unregistering) printers.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrinterShare.ReadBasic.All",
+    "name": "PrinterShare.ReadBasic.All",
+    "displayString": "Read basic information about printer shares",
+    "description": "Allows the application to read basic information about printer shares on behalf of the signed-in user. Does not allow reading access control information.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrinterShare.Read.All",
+    "name": "PrinterShare.Read.All",
+    "displayString": "Read printer shares",
+    "description": "Allows the application to read printer shares on behalf of the signed-in user.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrinterShare.ReadWrite.All",
+    "name": "PrinterShare.ReadWrite.All",
+    "displayString": "Read and write printer shares",
+    "description": "Allows the application to read and update printer shares on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintJob.Create",
+    "name": "PrintJob.Create",
+    "displayString": "Create print jobs",
+    "description": "Allows the application to create print jobs on behalf of the signed-in user and upload document content to print jobs that the signed-in user created.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintJob.Read",
+    "name": "PrintJob.Read",
+    "displayString": "Read user's print jobs",
+    "description": "Allows the application to read the metadata and document content of print jobs that the signed-in user created.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintJob.Read.All",
+    "name": "PrintJob.Read.All",
+    "displayString": "Read print jobs",
+    "description": "Allows the application to read the metadata and document content of print jobs on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintJob.ReadBasic",
+    "name": "PrintJob.ReadBasic",
+    "displayString": "Read basic information of user's print jobs",
+    "description": "Allows the application to read the metadata of print jobs that the signed-in user created. Does not allow access to print job document content.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintJob.ReadBasic.All",
+    "name": "PrintJob.ReadBasic.All",
+    "displayString": "Read basic information of print jobs",
+    "description": "Allows the application to read the metadata of print jobs on behalf of the signed-in user.\u00a0Does not allow access to print job document content.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintJob.ReadWrite",
+    "name": "PrintJob.ReadWrite",
+    "displayString": "Read and write user's print jobs",
+    "description": "Allows the application to read and update the metadata and document content of print jobs that the signed-in user created.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintJob.ReadWrite.All",
+    "name": "PrintJob.ReadWrite.All",
+    "displayString": "Read and write print jobs",
+    "description": "Allows the application to read and update the metadata and document content of print jobs on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintJob.ReadWriteBasic",
+    "name": "PrintJob.ReadWriteBasic",
+    "displayString": "Read and write basic information of user's print jobs",
+    "description": "Allows the application to read and update the metadata of print jobs that the signed-in user created. Does not allow access to print job document content.",
+    "needAdminConsent": false,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintJob.ReadWriteBasic.All",
+    "name": "PrintJob.ReadWriteBasic.All",
+    "displayString": "Read and write basic information of print jobs",
+    "description": "Allows the application to read and update the metadata of print jobs on behalf of the signed-in user.\u00a0Does not allow access to print job document content.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintConnector.Read.All",
+    "name": "PrintConnector.Read.All",
+    "displayString": "Read connectors",
+    "description": "Allows the application to read connectors on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintConnector.ReadWrite.All",
+    "name": "PrintConnector.ReadWrite.All",
+    "displayString": "Read and write print connectors",
+    "description": "Allows the application to read and write print connectors on behalf of the signed-in user.\u00a0",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintSettings.Read.All",
+    "name": "PrintSettings.Read.All",
+    "displayString": "Read tenant-wide print settings",
+    "description": "Allows the application to read print settings on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "delegated_PrintSettings.ReadWrite.All",
+    "name": "PrintSettings.ReadWrite.All",
+    "displayString": "Read and write tenant-wide print settings",
+    "description": "Allows the application to read and update print settings on behalf of the signed-in user.\u00a0",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_Printer.Read.All",
+    "name": "Printer.Read.All",
+    "displayString": "Read printers",
+    "description": "Allows the application to read printers without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_Printer.ReadWrite.All",
+    "name": "Printer.ReadWrite.All",
+    "displayString": "Read and update printers",
+    "description": "Allows the application to read and update printers without a signed-in user. Does not allow creating (registering) or deleting (unregistering) printers.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_PrintJob.Manage.All",
+    "name": "PrintJob.Manage.All",
+    "displayString": "Perform advanced operations on print jobs",
+    "description": "Allows the application to perform advanced operations like redirecting a print job to another printer without a signed-in user. Also allows the application to read and update the metadata of print jobs.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_PrintJob.Read.All",
+    "name": "PrintJob.Read.All",
+    "displayString": "Read print jobs",
+    "description": "Allows the application to read the metadata and document content of print jobs without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_PrintJob.ReadBasic.All",
+    "name": "PrintJob.ReadBasic.All",
+    "displayString": "Read basic information for print jobs",
+    "description": "Allows the application to read the metadata of print jobs without a signed-in user.\u00a0Does not allow access to print job document content.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_PrintJob.ReadWrite.All",
+    "name": "PrintJob.ReadWrite.All",
+    "displayString": "Read and write print jobs",
+    "description": "Allows the application to read and update the metadata and document content of print jobs without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_PrintJob.ReadWriteBasic.All",
+    "name": "PrintJob.ReadWriteBasic.All",
+    "displayString": "Read and write basic information for print jobs",
+    "description": "Allows the application to read and update the metadata of print jobs without a signed-in user.\u00a0Does not allow access to print job document content.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "application_PrintTaskDefinition.ReadWrite.All",
+    "name": "PrintTaskDefinition.ReadWrite.All",
+    "displayString": "Read, write and update print task definitions",
+    "description": "Allows the application to read and update print task definitions without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
     "id": "delegated_User.Read",
     "name": "User.Read",
     "displayString": "Sign-in and read user profile",
@@ -2768,18 +3630,52 @@
     "isMsaSupported": false
   },
   {
-    "id": "application_UserAuthenticationMethod.Read.All (private preview)",
-    "name": "UserAuthenticationMethod.Read.All (private preview)",
+    "id": "application_UserAuthenticationMethod.Read.All (preview)",
+    "name": "UserAuthenticationMethod.Read.All (preview)",
     "displayString": "Read users' authentication methods",
     "description": "Allows the app to read authentication methods of all users in your organization, without a signed-in user. Authentication methods include things like a user\u2019s phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
     "needAdminConsent": true,
     "type": "application"
   },
   {
-    "id": "application_UserAuthenticationMethod.ReadWrite.All (private preview)",
-    "name": "UserAuthenticationMethod.ReadWrite.All (private preview)",
+    "id": "application_UserAuthenticationMethod.ReadWrite.All (preview)",
+    "name": "UserAuthenticationMethod.ReadWrite.All (preview)",
     "displayString": "Manage users' authentication methods",
     "description": "Allows the application to read and write authentication methods of all users in your organization, without a signed-in user. Authentication methods include things like a user\u2019s phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "delegated_WindowsUpdates.ReadWrite.All",
+    "name": "WindowsUpdates.ReadWrite.All",
+    "displayString": "Read and write all Windows update deployment settings",
+    "description": "Allows the app to read and write all Windows update deployment settings for the organization on behalf of the signed-in user.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_WindowsUpdates.ReadWrite.All",
+    "name": "WindowsUpdates.ReadWrite.All",
+    "displayString": "Read and write all Windows update deployment settings",
+    "description": "Allows the app to read and write all Windows update deployment settings for the organization without a signed-in user.",
+    "needAdminConsent": true,
+    "type": "application"
+  },
+  {
+    "id": "delegated_Policy.ReadWrite.AuthenticationMethod (preview)",
+    "name": "Policy.ReadWrite.AuthenticationMethod (preview)",
+    "displayString": "Read and write all authentication methods policies.",
+    "description": "Allows the app to read and write all authentication methods policies on an Azure AD tenant. Additionally, the signed-in user must have the Global Administrator role assigned.",
+    "needAdminConsent": true,
+    "type": "delegated",
+    "isMsaSupported": false
+  },
+  {
+    "id": "application_Policy.ReadWrite.AuthenticationMethod (private preview)",
+    "name": "Policy.ReadWrite.AuthenticationMethod (private preview)",
+    "displayString": "Read and write all authentication methods policies.",
+    "description": "Allows the app to read and write all authentication methods policies on an Azure AD tenant.",
     "needAdminConsent": true,
     "type": "application"
   }
